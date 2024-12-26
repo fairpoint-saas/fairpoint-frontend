@@ -16,6 +16,10 @@ const CreateCost = () => {
     const [currency, setCurrency] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [isUploading, setIsUploading] = useState(false);
+    const [applicableFrom, setApplicableFrom] = useState('');
+    const [applicableUntil, setApplicableUntil] = useState('');
+    const [applicableWithConditions, setApplicableWithConditions] = useState('');
+    const [applicableToEvents, setApplicableToEvents] = useState('');
     const navigate = useNavigate();
 
     // ******** this method handles the file upload ********
@@ -48,7 +52,11 @@ const CreateCost = () => {
             unit,
             value,
             currency,
-            imageUrl: imageUrl
+            imageUrl: imageUrl,
+            applicable_from: applicableFrom,
+            applicable_until: applicableUntil,
+            applicable_with_conditions: applicableWithConditions,
+            applicable_to_events: applicableToEvents
         }, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -62,6 +70,10 @@ const CreateCost = () => {
                 setUnit('');
                 setValue('');
                 setCurrency('');
+                setApplicableFrom('');
+                setApplicableUntil('');
+                setApplicableWithConditions('');
+                setApplicableToEvents('');
                 navigate('/costs');
             })
             .catch(err => {
@@ -145,6 +157,52 @@ const CreateCost = () => {
                         className="input"
                         placeholder="$, €, ..."
                     />
+                </div>
+
+                <div className="flex flex-col flex-grow">
+                    <label htmlFor="applicableFrom">Applicable From</label>
+                    <input
+                        type="date"
+                        id="applicableFrom"
+                        value={applicableFrom}
+                        onChange={(e) => setApplicableFrom(e.target.value)}
+                        className='input'
+                    />
+                </div>
+                <div className="flex flex-col flex-grow">
+                    <label htmlFor="applicableUntil">Applicable Until</label>
+                    <input
+                        type="date"
+                        id="applicableUntil"
+                        value={applicableUntil}
+                        onChange={(e) => setApplicableUntil(e.target.value)}
+                        className='input'
+                    />
+                </div>
+                <div className="flex flex-col flex-grow">
+                    <label htmlFor="applicableWithConditions">Applicable With Conditions</label>
+                    <input
+                        type="text"
+                        id="applicableWithConditions"
+                        value={applicableWithConditions}
+                        onChange={(e) => setApplicableWithConditions(e.target.value)}
+                        className='input'
+                        placeholder='Conditions...'
+                    />
+                </div>
+                <div className="flex flex-col flex-grow">
+                    <label htmlFor="applicableToEvents">Applicable To Events</label>
+                    <select
+                        id="applicableToEvents"
+                        value={applicableToEvents}
+                        onChange={(e) => setApplicableToEvents(e.target.value)}
+                        className='input'
+                    >
+                        <option value="">Select event</option>
+                        <option value="eventA">Event A</option>
+                        <option value="eventB">Event B</option>
+                        <option value="eventC">Event C</option>
+                    </select>
                 </div>
 
                 <div className="flex flex-col flex-grow">

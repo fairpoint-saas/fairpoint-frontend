@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const categories = ['main', 'extra'];
 const costTypes = ['material', 'hr', 'place', 'energy'];
+const events = ['eventA', 'eventB', 'eventC'];
 
 const UnitCostCard = ({ unitCost, onDelete }) => {
   const navigate = useNavigate();
@@ -118,12 +119,49 @@ const UnitCostCard = ({ unitCost, onDelete }) => {
               onChange={handleEditChange}
               className="input"
             />
+            <input
+              type="date"
+              name="applicableFrom"
+              value={editedUnitCost.applicableFrom}
+              onChange={handleEditChange}
+              className="input"
+            />
+            <input
+              type="date"
+              name="applicableUntil"
+              value={editedUnitCost.applicableUntil}
+              onChange={handleEditChange}
+              className="input"
+            />
+            <input
+              type="text"
+              name="applicableWithConditions"
+              value={editedUnitCost.applicableWithConditions}
+              onChange={handleEditChange}
+              className="input"
+            />
+            <select
+              name="applicableToEvents"
+              value={editedUnitCost.applicableToEvents}
+              onChange={handleEditChange}
+              className="mt-2"
+            >
+              {events.map((event) => (
+                <option key={event} value={event}>
+                  {event}
+                </option>
+              ))}
+            </select>
           </>
         ) : (
           <>
             <h3 className="text-lg font-bold text-purple-700">{currentUnitCost.name}</h3>
             <p>{currentUnitCost.category} {currentUnitCost.cost_type}</p>
             <p>costs <span className="font-bold text-purple-700">{currentUnitCost.currency}{Number(currentUnitCost.value).toFixed(2)}/{currentUnitCost.unit} </span></p>
+            <p>Applicable From: {currentUnitCost.applicableFrom}</p>
+            <p>Applicable Until: {currentUnitCost.applicableUntil}</p>
+            <p>Conditions: {currentUnitCost.applicableWithConditions}</p>
+            <p>Events: {currentUnitCost.applicableToEvents}</p>
           </>
         )}
         <div className="flex space-x-2 mt-auto">
