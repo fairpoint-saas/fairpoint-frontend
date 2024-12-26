@@ -1,0 +1,14 @@
+
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.custom-file-upload .btn {
+    background-color: #007bff;
+    color: rgb(211, 62, 62);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+}
