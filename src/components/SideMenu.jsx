@@ -37,9 +37,9 @@ export function SideMenu({ isOpen, setIsOpen }) {
                     <Sidebar.Item icon={HiCollection}>
                       <NavLink to="/costs">Costs</NavLink>
                     </Sidebar.Item>
-                    {/* <Sidebar.Item icon={HiUsers}>
-                      <NavLink to="/profil">Profil</NavLink>
-                    </Sidebar.Item> */}
+                    <Sidebar.Item icon={HiUsers}>
+                      <NavLink to="/rules">Rules</NavLink>
+                    </Sidebar.Item>
                   </Sidebar.ItemGroup>
                   <Sidebar.ItemGroup>
                     {/* <Sidebar.Item icon={HiClipboard}>

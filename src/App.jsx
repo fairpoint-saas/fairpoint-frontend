@@ -22,6 +22,7 @@ import UnitCostListPage from './pages/UnitCostListPage'
 import CreateCostPage from './pages/CreateCostPage'
 import NotFoundPage from './pages/NotFoundPage';
 import RawData from './pages/RawData';
+import RulesListPage from './pages/RulesListPage';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/rawdata" element={<IsPrivate><RawData /></IsPrivate>} />
+          <Route path="/rules" element={<IsPrivate><RulesListPage /></IsPrivate>} />
           <Route path="/products" element={<IsPrivate><ProductListPage /></IsPrivate>} />
           <Route path="/costs" element={<IsPrivate><UnitCostListPage /></IsPrivate>} />
           <Route path="/products/:id" element={<IsPrivate><ProductDetailsPage /></IsPrivate>} />
